@@ -1,33 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Will You Be My Valentine? 💕</title>
+<title>Aura 💕</title>
+
 <style>
 body {
-  background-color: pink;
+  background: linear-gradient(to bottom right, #ff9ecb, #ff69b4);
   text-align: center;
-  font-family: Arial;
+  font-family: 'Arial';
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
+
+.container {
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  margin-top: 40px;
+}
+
+p {
+  font-size: 20px;
+}
+
 button {
-  padding: 10px 20px;
-  font-size: 18px;
-  margin: 10px;
+  padding: 15px 30px;
+  font-size: 20px;
+  margin: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background-color: white;
+  color: #ff1493;
+}
+
+.no {
+  background-color: #ff1493;
+  color: white;
+}
+
+.heart {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Our Valentine Date 💖</h1>
+<div class="container">
+  <h1>Aura Tarjuki 💖</h1>
 
-<p>🌸 Dinner at our favorite spot</p>
-<p>🎬 Romantic movie night</p>
-<p>🍰 Dessert & surprise gift</p>
+  <p>I have a special plan for you...</p>
 
-<h2>Will you be my Valentine? 💌</h2>
+  <p>🚗 I pick you up</p>
+  <p>🎁 I give you something special</p>
+  <p>📸 Vintage photobooth memories</p>
+  <p>🍽 Romantic dinner together</p>
 
-<button onclick="alert('YAY!!! 💕')">Yes 😍</button>
-<button onclick="alert('Oh no 😢 Try again')">No 😜</button>
+  <h2>Will you be my Valentine? 💌</h2>
+
+  <button class="yes" onclick="yesClicked()">Yes 😍</button>
+  <button class="no" onclick="moveButton()">No 😜</button>
+</div>
+
+<script>
+function yesClicked() {
+  alert("I KNEW IT 😌💕 Because I’m the coolest boyfriend ever.\n\nLove you Aura 💖 - Takeru");
+}
+
+function moveButton() {
+  const button = document.querySelector('.no');
+  button.style.position = 'absolute';
+  button.style.top = Math.random() * window.innerHeight + 'px';
+  button.style.left = Math.random() * window.innerWidth + 'px';
+}
+
+// floating hearts
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
 
 </body>
 </html>
