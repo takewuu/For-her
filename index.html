@@ -109,8 +109,8 @@ button {
     With that said, will you be my valentine?
   </div>
 
-  <button class="yes" onclick="sayYes()">Yes 💕</button>
-  <button class="no" id="noButton" onclick="handleNo()">No 🙈</button>
+  <button class="yes" onclick="sayYes()">Yes!</button>
+  <button class="no" id="noButton" onclick="handleNo()">No?</button>
 
 </div>
 
@@ -124,7 +124,7 @@ function handleNo() {
 
   if (!noClicked) {
     button.style.transform = "translateX(40px)";
-    button.innerText = "are you sure? try again 🙈";
+    button.innerText = "are you sure?";
     noClicked = true;
   } else {
     button.style.transform = "translateX(-40px)";
@@ -135,7 +135,7 @@ function sayYes() {
   document.getElementById("mainContent").style.display = "none";
   const final = document.getElementById("finalScreen");
   final.innerHTML = `
-    YEAYY WE HAVE A DATE 💗💗💗<br><br>
+    YEAYY WE HAVE A DATE 💗<br><br>
     Love u bubu,<br>
     From the coolest bf ever 😌
   `;
@@ -158,3 +158,4 @@ function sayYes() {
 
 </body>
 </html>
+
