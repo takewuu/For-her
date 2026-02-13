@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For Aura 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Bubu 💗</title>
 
 <style>
 body {
   margin: 0;
   font-family: 'Georgia', serif;
   background: linear-gradient(to bottom, #f8c8dc, #f4a6c1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #ffffff;
+  color: white;
   text-align: center;
+  overflow: hidden;
 }
 
 .container {
-  max-width: 600px;
+  padding: 40px 20px;
+  max-width: 400px;
+  margin: auto;
 }
 
 h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 18px;
-  margin-bottom: 40px;
-  opacity: 0.9;
+  font-size: 24px;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .plan {
-  font-size: 20px;
   line-height: 1.8;
-  margin-bottom: 40px;
+  margin: 25px 0;
+  font-size: 16px;
 }
 
-.question {
-  font-size: 24px;
-  margin-bottom: 20px;
+.force {
+  margin: 20px 0;
+  font-weight: bold;
 }
 
 button {
-  padding: 12px 28px;
-  font-size: 18px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
   border-radius: 30px;
   border: none;
+  margin: 8px 0;
   cursor: pointer;
-  margin: 10px;
   transition: 0.3s ease;
 }
 
@@ -57,46 +53,94 @@ button {
   color: #e75480;
 }
 
-.yes:hover {
-  background-color: #ffe4ef;
-}
-
 .no {
   background-color: transparent;
   color: white;
   border: 1px solid white;
 }
 
-.no:hover {
-  background-color: rgba(255,255,255,0.2);
+#finalScreen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff69b4;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 24px;
+  text-align: center;
+  padding: 20px;
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>Aura Tarjuki</h1>
-  <div class="subtitle">From Takeru Iwasawa</div>
+<div class="container" id="mainContent">
+  <h1>
+    Hewo bubu,<br>
+    since tomorrow is valentine i made a little something for you <3
+  </h1>
 
   <div class="plan">
     🏍️ I pick you up<br>
-    🎁 A small surprise for you<br>
-    📸 Vintage photobooth memories<br>
+    🎁 I give you something<br>
+    📸 Vintage photobooth<br>
     🍽 Dinner together
   </div>
 
-  <div class="question">
-    Will you be my Valentine?
+  <div class="force">
+    Harus pencet iya gamau tau 😤💗
   </div>
 
-  <button class="yes" onclick="yesClicked()">Yes</button>
-  <button class="no">Of course</button>
+  <button class="yes" onclick="sayYes()">Iya 💕</button>
+  <button class="no" onclick="moveButton(this)">No 🙈</button>
 </div>
 
+<div id="finalScreen"></div>
+
 <script>
-function yesClicked() {
-  alert("I can’t wait to spend this day with you, Aura.\n\nLove, Takeru 💗");
+function moveButton(button) {
+  button.style.position = "relative";
+  button.style.left = Math.random() * 100 - 50 + "px";
+}
+
+function sayYes() {
+  document.getElementById("mainContent").style.display = "none";
+  const final = document.getElementById("finalScreen");
+  final.innerHTML = `
+    YAYYYYY BUBU SAID YES 💗💗💗<br><br>
+    Love you always,<br>
+    The coolest bf ever 😌
+  `;
+  final.style.display = "flex";
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }, 200);
 }
 </script>
 
