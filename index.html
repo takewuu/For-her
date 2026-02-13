@@ -1,65 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Aura 💕</title>
+<title>For Aura 💗</title>
 
 <style>
 body {
-  background: linear-gradient(to bottom right, #ff9ecb, #ff69b4);
-  text-align: center;
-  font-family: 'Arial';
-  color: white;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(to bottom, #f8c8dc, #f4a6c1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ffffff;
+  text-align: center;
 }
 
 .container {
-  margin-top: 100px;
+  max-width: 600px;
 }
 
 h1 {
-  font-size: 45px;
+  font-size: 48px;
+  margin-bottom: 10px;
 }
 
-h2 {
-  margin-top: 40px;
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.9;
 }
 
-p {
+.plan {
   font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.question {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 button {
-  padding: 15px 30px;
-  font-size: 20px;
-  margin: 15px;
-  border: none;
+  padding: 12px 28px;
+  font-size: 18px;
   border-radius: 30px;
+  border: none;
   cursor: pointer;
-  transition: 0.3s;
+  margin: 10px;
+  transition: 0.3s ease;
 }
 
 .yes {
   background-color: white;
-  color: #ff1493;
+  color: #e75480;
+}
+
+.yes:hover {
+  background-color: #ffe4ef;
 }
 
 .no {
-  background-color: #ff1493;
+  background-color: transparent;
   color: white;
+  border: 1px solid white;
 }
 
-.heart {
-  position: absolute;
-  color: white;
-  font-size: 20px;
-  animation: float 5s linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(100vh); opacity: 1; }
-  100% { transform: translateY(-10vh); opacity: 0; }
+.no:hover {
+  background-color: rgba(255,255,255,0.2);
 }
 </style>
 </head>
@@ -67,48 +76,28 @@ button {
 <body>
 
 <div class="container">
-  <h1>Aura Tarjuki 💖</h1>
+  <h1>Aura Tarjuki</h1>
+  <div class="subtitle">From Takeru Iwasawa</div>
 
-  <p>I have a special plan for you...</p>
+  <div class="plan">
+    🏍️ I pick you up<br>
+    🎁 A small surprise for you<br>
+    📸 Vintage photobooth memories<br>
+    🍽 Dinner together
+  </div>
 
-  <p>🚗 I pick you up</p>
-  <p>🎁 I give you something special</p>
-  <p>📸 Vintage photobooth memories</p>
-  <p>🍽 Romantic dinner together</p>
+  <div class="question">
+    Will you be my Valentine?
+  </div>
 
-  <h2>Will you be my Valentine? 💌</h2>
-
-  <button class="yes" onclick="yesClicked()">Yes 😍</button>
-  <button class="no" onclick="moveButton()">No 😜</button>
+  <button class="yes" onclick="yesClicked()">Yes</button>
+  <button class="no">Of course</button>
 </div>
 
 <script>
 function yesClicked() {
-  alert("I KNEW IT 😌💕 Because I’m the coolest boyfriend ever.\n\nLove you Aura 💖 - Takeru");
+  alert("I can’t wait to spend this day with you, Aura.\n\nLove, Takeru 💗");
 }
-
-function moveButton() {
-  const button = document.querySelector('.no');
-  button.style.position = 'absolute';
-  button.style.top = Math.random() * window.innerHeight + 'px';
-  button.style.left = Math.random() * window.innerWidth + 'px';
-}
-
-// floating hearts
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "💗";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
-}
-
-setInterval(createHeart, 300);
 </script>
 
 </body>
