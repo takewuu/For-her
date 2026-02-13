@@ -16,25 +16,22 @@ body {
 
 .container {
   padding: 40px 20px;
-  max-width: 400px;
+  max-width: 420px;
   margin: auto;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  line-height: 1.5;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.section {
+  margin: 20px 0;
 }
 
 .plan {
   line-height: 1.8;
-  margin: 25px 0;
   font-size: 16px;
-}
-
-.force {
-  margin: 20px 0;
-  font-weight: bold;
 }
 
 button {
@@ -91,10 +88,15 @@ button {
 <body>
 
 <div class="container" id="mainContent">
+
   <h1>
     Hewo bubu,<br>
-    since tomorrow is valentine i made a little something for you <3
+    since tomorrow is valentine i would like to take you out on a date 💗
   </h1>
+
+  <div class="section">
+    here's what we gonna do tomorrow:
+  </div>
 
   <div class="plan">
     🏍️ I pick you up<br>
@@ -103,29 +105,39 @@ button {
     🍽 Dinner together
   </div>
 
-  <div class="force">
-    Harus pencet iya gamau tau 😤💗
+  <div class="section">
+    With that said, will you be my valentine?
   </div>
 
-  <button class="yes" onclick="sayYes()">Iya 💕</button>
-  <button class="no" onclick="moveButton(this)">No 🙈</button>
+  <button class="yes" onclick="sayYes()">Yes 💕</button>
+  <button class="no" id="noButton" onclick="handleNo()">No 🙈</button>
+
 </div>
 
 <div id="finalScreen"></div>
 
 <script>
-function moveButton(button) {
-  button.style.position = "relative";
-  button.style.left = Math.random() * 100 - 50 + "px";
+let noClicked = false;
+
+function handleNo() {
+  const button = document.getElementById("noButton");
+
+  if (!noClicked) {
+    button.style.transform = "translateX(40px)";
+    button.innerText = "are you sure? try again 🙈";
+    noClicked = true;
+  } else {
+    button.style.transform = "translateX(-40px)";
+  }
 }
 
 function sayYes() {
   document.getElementById("mainContent").style.display = "none";
   const final = document.getElementById("finalScreen");
   final.innerHTML = `
-    YAYYYYY BUBU SAID YES 💗💗💗<br><br>
-    Love you always,<br>
-    The coolest bf ever 😌
+    YEAYY WE HAVE A DATE 💗💗💗<br><br>
+    Love u bubu,<br>
+    From the coolest bf ever 😌
   `;
   final.style.display = "flex";
 
