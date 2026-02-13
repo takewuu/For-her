@@ -1,163 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Bubu ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Bubu ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(to bottom, #f8c8dc, #f4a6c1);
-  color: white;
-  text-align: center;
-  overflow: hidden;
-}
+    <style>
+        :root {
+            --primary-pink: #d4a5a5;
+            --dark-rose: #9e7676;
+            --glass: rgba(255, 255, 255, 0.2);
+        }
 
-.container {
-  padding: 40px 20px;
-  max-width: 420px;
-  margin: auto;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a4a4a;
+            overflow: hidden;
+        }
 
-h1 {
-  font-size: 22px;
-  line-height: 1.6;
-}
+        .container {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
 
-.section {
-  margin: 20px 0;
-}
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--dark-rose);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
 
-.plan {
-  line-height: 1.8;
-  font-size: 16px;
-}
+        .section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #888;
+        }
 
-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border-radius: 30px;
-  border: none;
-  margin: 8px 0;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
+        .plan {
+            text-align: left;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 15px;
+            line-height: 2.2;
+            color: #555;
+        }
 
-.yes {
-  background-color: white;
-  color: #e75480;
-}
+        .plan span {
+            margin-right: 10px;
+        }
 
-.no {
-  background-color: transparent;
-  color: white;
-  border: 1px solid white;
-}
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-#finalScreen {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #ff69b4;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: 24px;
-  text-align: center;
-  padding: 20px;
-}
+        button {
+            padding: 12px 25px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
 
-.heart {
-  position: absolute;
-  font-size: 22px;
-  animation: fall 4s linear infinite;
-}
+        .yes {
+            background-color: var(--primary-pink);
+            color: white;
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.4);
+        }
 
-@keyframes fall {
-  0% { transform: translateY(-10vh); opacity: 1; }
-  100% { transform: translateY(110vh); opacity: 0; }
-}
-</style>
+        .yes:hover {
+            transform: translateY(-2px);
+            background-color: var(--dark-rose);
+        }
+
+        .no {
+            background-color: transparent;
+            color: var(--dark-rose);
+            border: 1px solid var(--primary-pink);
+        }
+
+        #finalScreen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--dark-rose);
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            pointer-events: none;
+            animation: float 5s linear forwards;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container" id="mainContent">
+    <div class="container" id="mainContent">
+        <h1>Hewo bubu,</h1>
+        <p style="font-style: italic;">Since tomorrow is Valentine's, I'd love to take you out.</p>
+        
+        <div class="section-title">The Itinerary</div>
+        
+        <div class="plan">
+            <span>🏍️</span> I'll pick you up<br>
+            <span>🎁</span> A little surprise for you<br>
+            <span>📸</span> Vintage photobooth memories<br>
+            <span>🍽️</span> Dinner for two
+        </div>
 
-  <h1>
-    Hewo bubu,<br>
-    since tomorrow is valentine i would like to take you out on a date ❤️
-  </h1>
+        <p style="margin-top: 20px; font-weight: 300;">Will you be my Valentine?</p>
 
-  <div class="section">
-    here's what we gonna do tomorrow:
-  </div>
+        <div class="buttons">
+            <button class="yes" onclick="sayYes()">Of course!</button>
+            <button class="no" id="noButton" onclick="handleNo()">No?</button>
+        </div>
+    </div>
 
-  <div class="plan">
-    🏍️ I pick you up<br>
-    🎁 I give you something<br>
-    📸 Vintage photobooth<br>
-    🍽 Dinner together
-  </div>
-
-  <div class="section">
-    With that said, will you be my valentine?
-  </div>
-
-  <button class="yes" onclick="sayYes()">Yes!</button>
-  <button class="no" id="noButton" onclick="handleNo()">No?</button>
-
-</div>
-
-<div id="finalScreen"></div>
+    <div id="finalScreen">
+        <div id="finalText"></div>
+    </div>
 
 <script>
-let noClicked = false;
+    let noCount = 0;
 
-function handleNo() {
-  const button = document.getElementById("noButton");
+    function handleNo() {
+        const button = document.getElementById("noButton");
+        const messages = ["Are you sure?", "Think again? 🥺", "Last chance!", "Bubu pls..."];
+        
+        if (noCount < messages.length) {
+            button.innerText = messages[noCount];
+            // Moves the button slightly each time
+            button.style.transform = `translateX(${(noCount + 1) * 10}px)`;
+            noCount++;
+        }
+    }
 
-  if (!noClicked) {
-    button.style.transform = "translateX(40px)";
-    button.innerText = "are you sure?";
-    noClicked = true;
-  } else {
-    button.style.transform = "translateX(-40px)";
-  }
-}
+    function sayYes() {
+        document.getElementById("mainContent").style.display = "none";
+        const final = document.getElementById("finalScreen");
+        const finalText = document.getElementById("finalText");
+        
+        final.style.display = "flex";
+        finalText.innerHTML = `
+            <p>Yay! It's a date. ❤️</p>
+            <span style="font-family: 'Montserrat'; font-size: 14px; letter-spacing: 2px;">LOVE YOU BUBU</span>
+            <br>
+            <span style="font-size: 12px; font-style: italic; color: #888;">— from your favorite person —</span>
+        `;
 
-function sayYes() {
-  document.getElementById("mainContent").style.display = "none";
-  const final = document.getElementById("finalScreen");
-  final.innerHTML = `
-    YEAYY WE HAVE A DATE<br><br>
-    Love u bubu ❤️,<br>
-    From the coolest bf ever 😌
-  `;
-  final.style.display = "flex";
+        // Heart animation
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "🌸"; // Using cherry blossoms for elegance, or ❤️
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
 
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 4000);
-  }, 200);
-}
+            setTimeout(() => { heart.remove(); }, 5000);
+        }, 300);
+    }
 </script>
 
 </body>
 </html>
-
-
-
